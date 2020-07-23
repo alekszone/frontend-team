@@ -1,0 +1,18 @@
+.linkedIn {
+    width: 40px;
+    height: 40px;
+    color: #0090C0;
+    background-color: #ffffff;
+  
+}
+
+.text-white {
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown-toggle.nav-link{
+    color: white !important;
+}

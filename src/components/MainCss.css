@@ -1,0 +1,335 @@
+
+.contentCol {
+    border: 0.5px solid lightgray;
+    padding: 0 !important;
+    border-radius: 3px;
+    max-height: 570px;
+    position: relative;
+    background-color: white;
+}
+.container-fluid {
+    background-color: #f5f5f5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+}
+
+.contentCol button {
+    background-color: #0073b1 !important;
+    border-radius: 0;
+    font-size: 20px;
+}
+
+.contentCol button:hover {
+    background-color: #00649b !important;
+
+}
+
+#secondButton:hover {
+    border: 1px solid darkslategrey;
+}
+
+.contentCol svg {
+    font-size: 35px;
+    margin-left: 20px;
+    color:  #0073b1 !important;
+}
+
+
+.contentCol #secondButton{
+    background-color: transparent !important;
+    border-radius: 0;
+    color: gray;
+    border: 1px solid grey;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+#status {
+    margin-left: 100px;
+}
+
+#status p{
+    font-size: 20px;
+    margin-left: 10px;
+    font-weight: 500;
+}
+
+#moreInfo {
+    border: 2px dashed lightgray !important;
+    width: 100%;
+    padding: 10px;
+}
+#moreInfo p{
+    margin: 0;
+}
+#moreInfo span {
+    font-weight: 600;
+}
+
+#status svg {
+    font-size: 25px;
+    color: gray !important;
+    background-color: lightgray !important;
+}
+
+
+#profilePhoto {
+    border: 5px solid lightgray;
+    border-radius: 100px;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    position: absolute;
+    top: 25%;
+    left: 6%;
+}
+#profilePhoto img{
+    object-fit: fill;
+    height: 100%;
+    width: 100%;
+}
+#jumbotron {
+    height: 250px !important;
+    overflow: hidden;
+}
+#firstCol {
+    padding-top: 100px;
+}
+
+#jumbotronMain #cameraIcon svg {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    background-color: whitesmoke;
+    border-radius: 30%;
+}
+
+#moreInfo{
+    position: relative;
+}
+
+#xbutton svg {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 30px;
+    color: gray !important;
+
+    padding: 5px;
+}
+
+.sideContent {
+    /* max-height: 550px; */
+    overflow: hidden;
+}
+
+#experienceContent p,
+#experienceContent svg{
+    margin: 0;
+}
+
+
+#experienceContent svg {
+    font-size: 30px;
+    color: gray !important;
+}
+#iconDiv {
+    width: 100px;
+    height: 100px;
+    border-radius: 35%;
+    overflow: hidden;
+}
+
+#iconDiv img{
+    height: 100%;
+    width: 100%;
+}
+
+.mainContent {
+    border: 0.5px solid lightgray;
+    padding: 0 !important;
+    border-radius: 3px;
+    background-color: white;
+}
+
+.mainContent svg {
+    font-size: 35px;
+    margin-left: 20px;
+    color:  #0073b1 !important;
+}
+
+.postContainer {
+    border: 0.5px solid lightgray;
+    padding: 0 !important;
+    border-radius: 3px;
+    background-color: white;
+}
+
+.postContainer svg{
+    color: rgb(100, 100, 100) !important;
+    font-size: 25px;
+}
+
+
+.feedIcons button {
+    background-color: transparent !important;
+    padding: 20px;
+    border: 0 !important;
+    border-radius: 0 !important;
+    border-left: 1px solid lightgray !important;
+}
+
+.mainPostButton {
+    width: 100%
+}
+
+
+.mainPostButton button {
+    background-color: transparent !important;
+    padding: 20px;
+    width: 100%;
+    border: 0 !important;
+    border-radius: 0 !important;
+}
+
+.feedIcons button:hover{
+    background-color: #d1d1d1 !important;
+}
+.mainPostButton button:hover{
+    text-decoration: underline blue;
+    color: blue !important;
+}
+
+#feedContent {
+    padding: 10px;
+    width: 100%;
+    background-color: #f3f6f8;
+    border: 1px solid lightgray;
+    border-top: 0;
+}
+
+#feedContent span {
+    color: #0073b8;
+    font-weight: 600;
+}
+#feedContent p {
+    margin: 0;
+    color: rgb(100, 100, 100) ;
+}
+.postContent {
+    border: 1px solid lightgray;
+    background-color: white;
+    position: relative; 
+}
+
+.imgSmall {
+    max-width: 70px !important;
+    height: 70px;
+    overflow: hidden !important;
+    border-radius: 70px !important;
+}
+
+.imgSmall img{
+width: 100%;
+height: 100%;
+}
+.postOptions {
+    position: absolute;
+    top: 10%;
+    right: 2%;
+}
+.modalIcons svg {
+    font-size: 28px;
+    margin-left: 20px;
+    color: rgb(100, 100, 100) ;
+}
+
+.commentIcons svg {
+    font-size: 28px;
+    margin-left: 20px;
+    color: black !important;
+}
+
+#profilePhotoLeftSideBar {
+    border: 5px solid lightgray;
+    border-radius: 100px;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    position: absolute;
+    top: 11%;
+    left: 29%;
+}
+#profilePhotoLeftSideBar img{
+    object-fit: fill;
+    height: 100%;
+    width: 100%;
+}
+
+#jumbotronLeftSide {
+    height: 140px !important;
+    overflow: hidden;
+}
+
+.box-shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+.postHeader {
+    position: relative;
+}
+
+.dropDownMenu {
+    position: absolute;
+    top: 30%;
+    right: 30%;
+}
+.dropdown-menu {
+    opacity: 1 !important;
+    pointer-events: painted !important;
+}
+
+#editPhoto {
+    position: absolute;
+    bottom: 9%;
+    right: 17%;
+    z-index: 99;
+}
+
+.postImage {
+    max-width: 600px;
+    max-height: 600px;
+}
+.postImage img {
+    width: 100% !important;
+    height: 500px;
+}
+.inputComment {
+    width: 80%;
+    margin-top: 20px;
+}
+
+.inputComment input[type=text] {
+
+    margin-left: 10px;
+    padding: 10px;
+    border: 1px dotted;
+    border-radius: 9%;
+    width: 100%;
+}
+
+.commentImg img {
+    margin-top: 15px;
+    max-width: 56px;
+    height: 56px;
+    border-radius: 20%;
+    overflow: hidden;
+}
+
+#logingPage {
+    width: 100vw;
+    height: 100vh;
+}
+.Login {
+    position: absolute;
+    top: 30%;
+    width: 400px;
+}

@@ -1,0 +1,41 @@
+img {
+  width: 8.4rem;
+  height: 2.1rem;
+}
+
+.containers {
+  background-color: #f5f5f5;
+  font-size: 12px;
+  border-top: 1px solid lightgrey;
+}
+
+a {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  text-decoration: none !important;
+}
+
+a:link {
+  color: #485d69;
+}
+
+/* visited link */
+a:visited {
+  color: #485d69;
+}
+
+/* mouse over link */
+a:hover {
+  color: #0073b1;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+
+#privacy {
+  border: none;
+  background-color: #f5f5f5;
+  margin-right: 2px;
+}
