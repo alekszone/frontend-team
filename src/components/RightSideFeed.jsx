@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Card, Button, Image } from 'react-bootstrap'
+import { Card, Button, Image } from 'react-bootstrap'
 import { FaAngleDown } from 'react-icons/fa'
 
 function RightSideFeed() {

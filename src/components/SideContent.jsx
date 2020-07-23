@@ -2,7 +2,7 @@ import React from 'react'
 import { Row, Col, Image } from 'react-bootstrap'
 import { AiOutlineQuestionCircle } from 'react-icons/ai'
 import './MainCss.css'
-import { Link } from 'react-router-dom'
+//import { Link } from 'react-router-dom'
 
 class SideContent extends React.Component {
 
@@ -39,7 +39,7 @@ class SideContent extends React.Component {
     }
 
     render() {
-        console.log(this.state.users)
+        // console.log(this.state.users)
         return (
             <>
                 <Row className="pb-5 d-flex flex-column ">
