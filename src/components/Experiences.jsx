@@ -37,7 +37,7 @@ class Experiences extends Component {
     }
     saveImg = (event) => {
         let photo = new FormData()
-        photo.append('experience', event.target.files[0])
+        photo.append('image', event.target.files[0])
         this.setState({
             image: photo
         });
@@ -45,13 +45,8 @@ class Experiences extends Component {
     // https://striveschool.herokuapp.com/api/profile/user16/experiences/:expId/picture
 
     fetchUserData = async () => {
-        let resp = await fetch("https://striveschool.herokuapp.com/api/profile/" + this.props.userID + "/experiences/", {
-
-            headers: new Headers({
-                'Authorization': 'Basic ' + this.props.authoKey,
-                "Content-Type": "application/json",
-            })
-        }).then(resp => resp.json())
+        let resp = await fetch("https://linkedin-team.herokuapp.com/profiles/" + this.props.userID + "/experiences")
+            .then(resp => resp.json())
             .then(respObj => respObj.filter(exp => exp._id === this.state.editElementId))
             .then(data => {
                 const newExperience = this.state.newExperience
@@ -71,21 +66,14 @@ class Experiences extends Component {
         e.preventDefault()
         Promise.all(
             [
-                fetch("https://striveschool.herokuapp.com/api/profile/" + this.props.userID + "/experiences/" + this.state.editElementId, {
+                fetch("https://linkedin-team.herokuapp.com/profiles/" + this.props.userID + "/experiences/" + this.state.editElementId, {
                     method: "PUT",
                     body: JSON.stringify(this.state.newExperience),
-                    headers: new Headers({
-                        'Authorization': 'Basic ' + this.props.authoKey,
-                        "Content-Type": "application/json",
-                    })
                 }),
 
-                fetch("https://striveschool.herokuapp.com/api/profile/" + this.props.userID + "/experiences/" + this.state.editElementId + "/picture", {
+                fetch("https://linkedin-team.herokuapp.com/profiles/" + this.props.userID + "/experiences/" + this.state.editElementId + "/picture", {
                     method: "POST",
                     body: this.state.image,
-                    headers: new Headers({
-                        'Authorization': 'Basic ' + this.props.authoKey,
-                    })
                 })
             ]
         ).then(this.setState({
@@ -98,11 +86,8 @@ class Experiences extends Component {
     }
 
     deleteExperience = async (id) => {
-        let resp = await fetch("https://striveschool.herokuapp.com/api/profile/" + this.props.userID + "/experiences/" + id, {
+        let resp = await fetch("https://linkedin-team.herokuapp.com/profiles/" + this.props.userID + "/experiences/" + this.props.userID + "/experiences/" + id, {
             method: "DELETE",
-            headers: new Headers({
-                'Authorization': 'Basic ' + this.props.authoKey,
-            })
         })
 
         if (resp.ok) {
@@ -119,25 +104,18 @@ class Experiences extends Component {
     handleSubimt = async (e) => {
         e.preventDefault()
 
-        let resp = await fetch("https://striveschool.herokuapp.com/api/profile/" + this.props.userID + "/experiences", {
+        let resp = await fetch("https://linkedin-team.herokuapp.com/profiles/" + this.props.userID + "/experiences", {
             method: "POST",
             body: JSON.stringify(this.state.newExperience),
-            headers: new Headers({
-                'Authorization': 'Basic ' + this.props.authoKey,
-                "Content-Type": "application/json",
-            })
         })
 
         const data = await resp.json()
         const id = data._id
 
         setTimeout(async () => {
-            await fetch("https://striveschool.herokuapp.com/api/profile/" + this.props.userID + "/experiences/" + id + "/picture", {
+            await fetch("https://linkedin-team.herokuapp.com/profiles/" + this.props.userID + "/experiences/" + id + "/picture", {
                 method: "POST",
                 body: this.state.image,
-                headers: new Headers({
-                    'Authorization': 'Basic ' + this.props.authoKey,
-                })
             })
         })
 
@@ -157,12 +135,7 @@ class Experiences extends Component {
     }
 
     componentDidMount = async () => {
-        await fetch("https://striveschool.herokuapp.com/api/profile/" + this.props.userID + "/experiences", {
-            headers: new Headers({
-                'Authorization': 'Basic ' + this.props.authoKey,
-                "Content-Type": "application/json",
-            }),
-        })
+        await fetch("https://linkedin-team.herokuapp.com/profiles/" + this.props.userID + "/experiences")
             .then(resp => resp.json())
             .then(respObj => this.setState({
                 userData: respObj
@@ -172,12 +145,7 @@ class Experiences extends Component {
     componentDidUpdate = async () => {
         if (this.state.userID !== this.props.userID) {
             this.setState({ userID: this.props.userID }, async () => {
-                await fetch("https://striveschool.herokuapp.com/api/profile/" + this.props.userID + "/experiences", {
-                    headers: new Headers({
-                        'Authorization': 'Basic ' + this.props.authoKey,
-                        "Content-Type": "application/json",
-                    }),
-                })
+                await fetch("https://linkedin-team.herokuapp.com/profiles/" + this.props.userID + "/experiences")
                     .then(resp => resp.json())
                     .then(respObj => this.setState({
                         userData: respObj
@@ -188,6 +156,7 @@ class Experiences extends Component {
 
 
     render() {
+        console.log(this.state.newExperience)
         return (
             <>
                 <div className="mainContent p-4 mb-3 box-shadow ">
