@@ -5,7 +5,7 @@ import FeedPosts from './FeedPosts'
 import RightSideFeed from './RightSideFeed'
 import LeftSideBar from "./LeftSideBar"
 import { TiCameraOutline } from 'react-icons/ti'
-import { BsCameraVideo, BsPencilSquare } from 'react-icons/bs'
+import { BsCameraVideo } from 'react-icons/bs'
 import { FiFileText } from 'react-icons/fi'
 import { AiOutlinePlus } from 'react-icons/ai'
 

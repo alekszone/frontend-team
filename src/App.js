@@ -52,7 +52,7 @@ class App extends Component {
   }
 
   changeStatus = () => {
-    console.log("test")
+    //  console.log("test")
     this.setState({
       show: !this.state.show,
       search: ''
@@ -72,7 +72,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.users)
+    //console.log(this.state.users)
     return (
       <Router>
         <div className="App" >

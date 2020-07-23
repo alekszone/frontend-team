@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, ListGroup, Dropdown, Accordion, Button } from 'react-bootstrap'
+import { Image, Dropdown, Accordion, Button } from 'react-bootstrap'
 import { BsThreeDots } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import { AiOutlineLike, AiFillLike } from 'react-icons/ai'

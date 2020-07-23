@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col } from 'react-bootstrap'
+//import { Col } from 'react-bootstrap'
 import { RiPencilLine } from 'react-icons/ri'
 
 

@@ -59,8 +59,10 @@ class Experiences extends Component {
                 this.setState({
                     newExperience
                 });
+
             })
     }
+
 
     editTheExperience = (e) => {
         e.preventDefault()
@@ -87,7 +89,7 @@ class Experiences extends Component {
 
     deleteExperience = async (id) => {
         let resp = await fetch("https://linkedin-team.herokuapp.com/profiles/" + this.props.userID + "/experiences/" + this.props.userID + "/experiences/" + id, {
-            method: "DELETE",
+            method: "DELETE"
         })
 
         if (resp.ok) {
@@ -156,7 +158,7 @@ class Experiences extends Component {
 
 
     render() {
-        console.log(this.state.newExperience)
+        //console.log(this.state.newExperience)
         return (
             <>
                 <div className="mainContent p-4 mb-3 box-shadow ">
