@@ -12,7 +12,7 @@ class SideContent extends React.Component {
 
     componentDidMount = () => {
         // const url = "https://striveschool.herokuapp.com/api/profile/";
-        const url ="https://linkedin-team.herokuapp.com/profiles"
+        const url = "https://linkedin-team.herokuapp.com/profiles"
 
         const username = 'user24';
         const password = '48D4vaVh6Ra3DD8w';
@@ -24,10 +24,10 @@ class SideContent extends React.Component {
 
         fetch(url)
 
-        // fetch(url, {
-        //     method: "GET",
-        //     headers: headers,
-        // })
+            // fetch(url, {
+            //     method: "GET",
+            //     headers: headers,
+            // })
             .then((response) => {
                 if (response.ok) {
                     return response.json();
@@ -64,10 +64,10 @@ class SideContent extends React.Component {
                                 {user.image === undefined || user.image === ''
                                     ? <Image
                                         onClick={() => this.props.props.history.push("/profiles/" + user.username)}
-                                        src='https://img.icons8.com/officel/2x/user.png'
+                                        src='https://fr.toluna.com//dpolls_images/2019/07/17/786d4f74-f843-421d-bc48-f51472d086ce.jpg'
                                         style={{ height: "4rem", width: "4rem", border: "1px solid lightgray", borderRadius: "2rem" }}
                                         className="card-img img-fluid"
-                                        alt="image"
+                                    //alt="image"
                                     />
                                     : <Image
                                         onClick={() => this.props.props.history.push("/profiles/" + user.username)}

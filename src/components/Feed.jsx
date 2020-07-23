@@ -22,7 +22,7 @@ class Feed extends Component {
     }
 
     fetchPosts = async () => {
-        await fetch("https://linkedin-team.herokuapp.com/post")
+        await fetch("https://linkedin-team.herokuapp.com/posts")
             .then(resp => resp.json())
             .then(respObj => this.setState({
                 feeds: respObj.reverse(),
@@ -32,7 +32,7 @@ class Feed extends Component {
 
     saveImg = (event) => {
         let photo = new FormData()
-        photo.append('post', event.target.files[0])
+        photo.append('image', event.target.files[0])
         this.setState({
             image: photo
         });
@@ -57,7 +57,7 @@ class Feed extends Component {
     }
 
     postNewPost = async () => {
-        const resp = await fetch("https://linkedin-team.herokuapp.com/post", {
+        const resp = await fetch("https://linkedin-team.herokuapp.com/posts", {
             method: "POST",
             body: JSON.stringify(this.state.newPost),
             // headers: new Headers({
@@ -70,7 +70,7 @@ class Feed extends Component {
 
         setTimeout(async () => {
 
-            const resp = await fetch("https://linkedin-team.herokuapp.com/post" + id +"/image", {
+            const resp = await fetch("https://linkedin-team.herokuapp.com/posts/" + id + "/image", {
                 method: "POST",
                 body: this.state.image,
                 // headers: new Headers({
@@ -91,6 +91,9 @@ class Feed extends Component {
 
 
     render() {
+        // console.log(this.state.feeds)
+        // console.log(this.props.users)
+        console.log(this.state.newPost)
         return (
 
             <Container className="content mt-4 mb-4">

@@ -24,7 +24,7 @@ class JumBotron extends Component {
 
     handleUpload = async () => {
         const photo = new FormData()
-        photo.append("user", this.state.profile)
+        photo.append("userImage", this.state.profile)
 
         let resp = await fetch("https://linkedin-team.herokuapp.com/profiles/" + this.props.username + "/picture", {
             method: "POST",

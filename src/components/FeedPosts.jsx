@@ -20,14 +20,14 @@ class FeedPosts extends Component {
     }
 
     deletePost = async (id) => {
-        const resp = await fetch("https://striveschool.herokuapp.com/api/posts/" + id, {
+        const resp = await fetch("https://linkedin-team.herokuapp.com/post/" + id, {
             method: "DELETE",
-            headers: new Headers({
-                'Authorization': 'Basic ' + "dXNlcjE2OmM5V0VVeE1TMjk0aE42ZkY=",
-            }),
+            // headers: new Headers({
+            //     'Authorization': 'Basic ' + "dXNlcjE2OmM5V0VVeE1TMjk0aE42ZkY=",
+            // }),
         })
         if (resp.ok) {
-            alert("You deleted your post!")
+            alert("You deleted a post!")
             this.setState({
                 showDropdown: false
             });
@@ -85,27 +85,29 @@ class FeedPosts extends Component {
 
 
     render() {
+        // console.log(this.state.comments)
+        // console.log(this.props.info.user[0].username)
         return (
             <div className="postContent box-shadow  mb-2">
                 <div className='postHeader d-flex align-items-center p-3'>
                     <div className="imgSmall mr-3" >
-                        {this.props.info.user.image ?
-                            <Link to={"/profiles/" + this.props.info.user.username}>
-                                <Image fluid src={this.props.info.user.image} />
+                        {this.props.info.user[0].image ?
+                            <Link to={"/profiles/" + this.props.info.user[0].username}>
+                                <Image fluid src={this.props.info.user[0].image} />
                             </Link>
                             :
-                            <Link to={"/profiles/" + this.props.info.user.username}>
+                            <Link to={"/profiles/" + this.props.info.user[0].username}>
                                 <Image fluid src='https://img.icons8.com/officel/2x/user.png' />
                             </Link>
                         }
                     </div>
                     <div className="d-flex flex-column">
                         <h6 className="m-0">
-                            <Link to={"/profiles/" + this.props.info.user.username}>
-                                {this.props.info.user.name + " " + this.props.info.user.surname}
+                            <Link to={"/profiles/" + this.props.info.user[0].username}>
+                                {this.props.info.user[0].name + " " + this.props.info.user[0].surname}
                             </Link>
                         </h6>
-                        <label className="m-0">{this.props.info.user.title}</label>
+                        <label className="m-0">{this.props.info.user[0].title}</label>
                         <label className="m-0">Time</label>
                     </div>
                     <div className="postOptions">

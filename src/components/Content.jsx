@@ -53,6 +53,7 @@ class Content extends Component {
     }
 
     render() {
+        console.log(this.state.userInfo)
         return (
             <Container className="content mt-4 mb-4">
                 {this.state.loading &&
