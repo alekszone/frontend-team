@@ -57,7 +57,7 @@ class SideContent extends React.Component {
                     </Col>
                 </Row>
                 <p>People also viewed</p>
-                {this.state.users.map((user, i) => {
+                {this.state.users.slice(0,6).map((user, i) => {
                     return (
                         <Row key={i} className="pb-3 d-flex align-items-center">
                             <Col md={4}>
