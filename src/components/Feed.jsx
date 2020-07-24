@@ -13,14 +13,15 @@ class Feed extends Component {
 
     state = {
         feeds: [],
+        //_id: this.props._id,
         loading: true,
         showModal: false,
         newPost: {
-            text: ''
+            text: "",
+            username: this.props.username,
         },
-        image: ''
-    }
-
+        image: "",
+    };
     fetchPosts = async () => {
         await fetch("https://linkedin-team.herokuapp.com/posts")
             .then(resp => resp.json())
@@ -32,7 +33,7 @@ class Feed extends Component {
 
     saveImg = (event) => {
         let photo = new FormData()
-        photo.append('image', event.target.files[0])
+        photo.append('image', event.target.files[0])//ta shikojm me vone
         this.setState({
             image: photo
         });
@@ -57,9 +58,9 @@ class Feed extends Component {
     }
 
     postNewPost = async () => {
-        const resp = await fetch("https://linkedin-team.herokuapp.com/posts", {
+        const resp = await fetch("https://linkedin-team.herokuapp.com/posts/", {
             method: "POST",
-            body: JSON.stringify(this.state.newPost),
+            body: JSON.stringify(this.state.newPost)
             // headers: new Headers({
             //     'Authorization': 'Basic ' + this.props.authoKey,
             //     "Content-Type": "application/json",
@@ -67,6 +68,7 @@ class Feed extends Component {
         })
         const data = await resp.json()
         const id = data._id
+        console.log(data._id)
 
         setTimeout(async () => {
 

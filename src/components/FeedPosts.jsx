@@ -19,8 +19,8 @@ class FeedPosts extends Component {
         }
     }
 
-    deletePost = async (id) => {
-        const resp = await fetch("https://linkedin-team.herokuapp.com/post/" + id, {
+    deletePost = async () => {
+        const resp = await fetch("https://linkedin-team.herokuapp.com/post/" + this.props.info._id, {
             method: "DELETE",
             // headers: new Headers({
             //     'Authorization': 'Basic ' + "dXNlcjE2OmM5V0VVeE1TMjk0aE42ZkY=",
@@ -73,15 +73,15 @@ class FeedPosts extends Component {
     }
 
 
-    componentDidMount = async () => {
-        const commentsUrl = "https://striveschool.herokuapp.com/api/comments/";
-        const comments = await fetch(commentsUrl + this.props.info._id, {
-            headers: new Headers({
-                'Authorization': 'Basic ' + this.props.authoKey,
-            }),
-        }).then((response) => response.json());
-        this.setState({ comments });
-    }
+    // componentDidMount = async () => {
+    //     const commentsUrl = "https://striveschool.herokuapp.com/api/comments/";
+    //     const comments = await fetch(commentsUrl + this.props.info._id, {
+    //         headers: new Headers({
+    //             'Authorization': 'Basic ' + this.props.authoKey,
+    //         }),
+    //     }).then((response) => response.json());
+    //     this.setState({ comments });
+    // }
 
 
     render() {

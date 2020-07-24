@@ -16,6 +16,7 @@ class Experiences extends Component {
         editExperience: false,
         editElementId: '',
         newExperience: {
+
             role: '',
             company: '',
             startDate: '',
@@ -45,15 +46,17 @@ class Experiences extends Component {
     // https://striveschool.herokuapp.com/api/profile/user16/experiences/:expId/picture
 
     fetchUserData = async () => {
-        let resp = await fetch("https://linkedin-team.herokuapp.com/profiles/" + this.props.userID + "/experiences")
+        await fetch("https://linkedin-team.herokuapp.com/profiles/" + this.props.userID + "/experiences")
+
             .then(resp => resp.json())
             .then(respObj => respObj.filter(exp => exp._id === this.state.editElementId))
             .then(data => {
                 const newExperience = this.state.newExperience
+
                 newExperience.role = data[0].role
                 newExperience.company = data[0].company
                 newExperience.description = data[0].description
-                newExperience.startDate = data[0].startDate.slice(0, 10)
+                newExperience.startDate = data[0].startDate
                 newExperience.endDate = data[0].endDate
                 newExperience.area = data[0].area
                 this.setState({
@@ -70,12 +73,18 @@ class Experiences extends Component {
             [
                 fetch("https://linkedin-team.herokuapp.com/profiles/" + this.props.userID + "/experiences/" + this.state.editElementId, {
                     method: "PUT",
+                    mode: 'cors',
                     body: JSON.stringify(this.state.newExperience),
+                    headers: {
+                        'Content-Type': 'application/json'
+
+                    },
                 }),
 
                 fetch("https://linkedin-team.herokuapp.com/profiles/" + this.props.userID + "/experiences/" + this.state.editElementId + "/picture", {
                     method: "POST",
                     body: this.state.image,
+
                 })
             ]
         ).then(this.setState({
@@ -88,50 +97,55 @@ class Experiences extends Component {
     }
 
     deleteExperience = async (id) => {
-        let resp = await fetch("https://linkedin-team.herokuapp.com/profiles/" + this.props.userID + "/experiences/" + this.props.userID + "/experiences/" + id, {
-            method: "DELETE"
+        await fetch("https://linkedin-team.herokuapp.com/profiles/" + this.props.userID + "/experiences/" + id, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+
+            },
+
         })
 
-        if (resp.ok) {
-            alert("The experience was deleted!")
-            this.setState({
-                showModal: false,
-                addExperience: false,
-                editExperience: false,
 
-            });
-        }
+        alert("The experience was deleted!")
+        this.setState({
+            showModal: false,
+            addExperience: false,
+            editExperience: false,
+        });
+
     }
 
     handleSubimt = async (e) => {
         e.preventDefault()
 
         let resp = await fetch("https://linkedin-team.herokuapp.com/profiles/" + this.props.userID + "/experiences", {
-            method: "POST",
+            method: 'POST',
             body: JSON.stringify(this.state.newExperience),
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json'
+            }
         })
-
         const data = await resp.json()
         const id = data._id
 
         setTimeout(async () => {
-            await fetch("https://linkedin-team.herokuapp.com/profiles/" + this.props.userID + "/experiences/" + id + "/picture", {
-                method: "POST",
+            await fetch("https://linkedin-team.herokuapp.com/profiles/" + this.props.userID + "/experiences/" + data._id + "/picture", {
+                method: 'POST',
                 body: this.state.image,
             })
         })
 
 
+        alert("You just added a new Expereince!")
+        this.setState({
+            showModal: false,
+            addExperience: false,
+            editExperience: false,
 
-        if (resp.ok) {
-            alert("You just added a new Expereince!")
-            this.setState({
-                showModal: false,
-                addExperience: false,
-                editExperience: false,
+        });
 
-            });
-        }
 
 
     }
@@ -193,7 +207,7 @@ class Experiences extends Component {
                                         <h5>{user.role}</h5>
                                         <p>{user.company}</p>
                                         <p>{user.description}</p>
-                                        <p>{user.startDate.slice(0, 10)}</p>
+                                        <p>{user.startDate}</p>
                                     </div>
                                 </div>
 
