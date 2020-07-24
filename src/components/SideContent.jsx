@@ -64,7 +64,7 @@ class SideContent extends React.Component {
                                 {user.image === undefined || user.image === ''
                                     ? <Image
                                         onClick={() => this.props.props.history.push("/profiles/" + user.username)}
-                                        src='https://fr.toluna.com//dpolls_images/2019/07/17/786d4f74-f843-421d-bc48-f51472d086ce.jpg'
+                                        src='https://img.icons8.com/officel/2x/user.png'
                                         style={{ height: "4rem", width: "4rem", border: "1px solid lightgray", borderRadius: "2rem" }}
                                         className="card-img img-fluid"
                                     //alt="image"

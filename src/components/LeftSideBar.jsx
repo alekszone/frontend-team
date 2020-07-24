@@ -48,7 +48,7 @@ export class SideBar extends Component {
                     </div>
 
                     <div>
-                      <p>97</p>
+                      <p>14 448</p>
                     </div>
                   </div>
                 </Link>

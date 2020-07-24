@@ -91,10 +91,7 @@ class Feed extends Component {
             });
             // window.location.reload()
         }
-
     }
-
-
 
     render() {
         // console.log(this.state.userId)

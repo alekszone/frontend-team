@@ -18,13 +18,20 @@ class FeedPosts extends Component {
             elementId: this.props.info._id
         }
     }
-
+    //deleting a post
     deletePost = async () => {
-        const resp = await fetch("https://linkedin-team.herokuapp.com/post/" + this.props.info._id, {
+        const resp = await fetch("https://linkedin-team.herokuapp.com/posts/" + this.props.info._id, {
             method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json'
+
+            },
             // headers: new Headers({
             //     'Authorization': 'Basic ' + "dXNlcjE2OmM5V0VVeE1TMjk0aE42ZkY=",
             // }),
+
+
+
         })
         if (resp.ok) {
             alert("You deleted a post!")
@@ -119,9 +126,9 @@ class FeedPosts extends Component {
                     </div>
                     <div className="dropDownMenu">
                         <Dropdown.Menu show={this.state.showDropdown}>
-                            <Dropdown.Item onSelect={() => console.log("Edit")}>Edit</Dropdown.Item>
+
                             <Dropdown.Item onSelect={() => this.deletePost(this.props.info._id)}>Delete</Dropdown.Item>
-                            <Dropdown.Item onSelect={() => console.log("Something else")}>Something else</Dropdown.Item>
+
                         </Dropdown.Menu>
                     </div>
                 </div>

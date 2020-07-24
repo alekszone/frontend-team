@@ -41,7 +41,7 @@ class NavBar extends Component {
                     Home
                   </Link>
 
-                  <Link className='text-white mr-2' to="/my-network" >
+                  <Link className='text-white mr-2' to="/network" >
                     <FaUserFriends />
                     My Network
                   </Link>
@@ -64,7 +64,7 @@ class NavBar extends Component {
                     <Image src='https://img.icons8.com/officel/2x/user.png' style={{ width: "25px", height: "25px", borderRadius: "35%", margin: "0" }} />
                   }
                   <NavDropdown title="Dropdown" className="basic-nav-dropdown" variant="light" title='Me'>
-                    <NavDropdown.Item onSelect={() => this.props.history.push("/profiles/user24")}>My Acc</NavDropdown.Item>
+                    <NavDropdown.Item onSelect={() => this.props.history.push("/profiles/eriseld")}>My Acc</NavDropdown.Item>
                     <NavDropdown.Item onSelect={() => window.parent.location = window.parent.location.href} style={{ color: "red" }}><Link to="/" >Log Out</Link></NavDropdown.Item>
                   </NavDropdown>
 

@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import Footer from "./components/Footer"
 import Feed from './components/Feed'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import Network from './components/Network'
 
 class App extends Component {
 
@@ -122,6 +123,8 @@ class App extends Component {
                 authoKey={this.props.authoKey}
                 getUserImg={this.getUserImg} />}
             />
+            <Route path="/network" exact component={Network} />
+
             <Footer />
           </Container>
         </div>

@@ -109,7 +109,7 @@ class JumBotron extends Component {
                             <h5>{this.props.profileInfo.bio.length > 29 ? this.props.profileInfo.bio.slice(0, 29) + "..." : this.props.profileInfo.bio}</h5>
                             <div className="d-flex">
                                 <h6 className="mr-4">{this.props.profileInfo.area}</h6>
-                                <h6 className="mr-4"><p> 97 connections </p></h6>
+                                <h6 className="mr-4"><p> 14 448 connections </p></h6>
                                 <h6 className="mr-4"><p>Contact info</p></h6>
                             </div>
                         </Col>
@@ -124,8 +124,8 @@ class JumBotron extends Component {
                                                     MORE </Dropdown.Toggle>
 
                                                 <Dropdown.Menu>
-                                                    <Dropdown.Item href="https://linkedin-team.herokuapp.com/profiles/user24/cv">GET THE PDF</Dropdown.Item>
-                                                    <Dropdown.Item href="https://linkedin-team.herokuapp.com/profiles/user24/experiences/csv">GET EXPERIENCES</Dropdown.Item>
+                                                    <Dropdown.Item href="https://linkedin-team.herokuapp.com/profiles/eriseld/cv">GET THE PDF</Dropdown.Item>
+                                                    <Dropdown.Item href="https://linkedin-team.herokuapp.com/profiles/eriseld/experiences/csv">GET EXPERIENCES</Dropdown.Item>
 
                                                 </Dropdown.Menu>
                                             </Dropdown>
