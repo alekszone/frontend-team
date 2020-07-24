@@ -5,7 +5,7 @@ import FeedPosts from './FeedPosts'
 import RightSideFeed from './RightSideFeed'
 import LeftSideBar from "./LeftSideBar"
 import { TiCameraOutline } from 'react-icons/ti'
-import { BsCameraVideo } from 'react-icons/bs'
+import { BsCameraVideo, BsPencilSquare } from 'react-icons/bs'
 import { FiFileText } from 'react-icons/fi'
 import { AiOutlinePlus } from 'react-icons/ai'
 
@@ -13,16 +13,23 @@ class Feed extends Component {
 
     state = {
         feeds: [],
-        //_id: this.props._id,
         loading: true,
         showModal: false,
         newPost: {
-            text: "",
-            username: this.props.username,
+            text: ''
         },
-        image: "",
-    };
+        image: '',
+        userId: '',
+        postId: ''
+    }
+
     fetchPosts = async () => {
+
+        await fetch("https://linkedin-team.herokuapp.com/profiles")
+            .then(resp => resp.json())
+            .then(respObj =>
+                respObj.data.filter(user => user.username === this.props.username).map((user, i) => this.setState({ userId: user._id })))
+
         await fetch("https://linkedin-team.herokuapp.com/posts")
             .then(resp => resp.json())
             .then(respObj => this.setState({
@@ -33,13 +40,14 @@ class Feed extends Component {
 
     saveImg = (event) => {
         let photo = new FormData()
-        photo.append('image', event.target.files[0])//ta shikojm me vone
+        photo.append('image', event.target.files[0])
         this.setState({
             image: photo
         });
     }
 
     componentDidMount() {
+
         this.fetchPosts()
     }
 
@@ -58,26 +66,21 @@ class Feed extends Component {
     }
 
     postNewPost = async () => {
-        const resp = await fetch("https://linkedin-team.herokuapp.com/posts/", {
+        const resp = await fetch("https://linkedin-team.herokuapp.com/posts", {
             method: "POST",
-            body: JSON.stringify(this.state.newPost)
-            // headers: new Headers({
-            //     'Authorization': 'Basic ' + this.props.authoKey,
-            //     "Content-Type": "application/json",
-            // }),
+            body: JSON.stringify({ ...this.state.newPost, "user": this.state.userId }),
+            headers: new Headers({
+                "Content-Type": "application/json",
+            }),
         })
         const data = await resp.json()
-        const id = data._id
-        console.log(data._id)
+        const id = data
 
         setTimeout(async () => {
 
             const resp = await fetch("https://linkedin-team.herokuapp.com/posts/" + id + "/image", {
                 method: "POST",
                 body: this.state.image,
-                // headers: new Headers({
-                //     'Authorization': 'Basic ' + this.props.authoKey,
-                // }),
             }, 2000)
         })
 
@@ -86,6 +89,7 @@ class Feed extends Component {
             this.setState({
                 showModal: false
             });
+            // window.location.reload()
         }
 
     }
@@ -93,9 +97,9 @@ class Feed extends Component {
 
 
     render() {
-        // console.log(this.state.feeds)
-        // console.log(this.props.users)
-        console.log(this.state.newPost)
+        // console.log(this.state.userId)
+        console.log("postId: ", this.state.postId)
+        console.log("userId: ", this.state.userId)
         return (
 
             <Container className="content mt-4 mb-4">

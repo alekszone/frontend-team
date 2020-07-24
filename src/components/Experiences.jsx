@@ -121,24 +121,29 @@ class Experiences extends Component {
 
         let resp = await fetch("https://linkedin-team.herokuapp.com/profiles/" + this.props.userID + "/experiences", {
             method: 'POST',
-            body: JSON.stringify(this.state.newExperience),
-            mode: 'cors',
+
+            body: JSON.stringify({ ...this.state.newExperience, "username": this.props.userID }),
+
+
             headers: {
                 'Content-Type': 'application/json'
             }
         })
+
         const data = await resp.json()
-        const id = data._id
+        const id = data
 
+        console.log(this.state.newExperience)
         setTimeout(async () => {
-            await fetch("https://linkedin-team.herokuapp.com/profiles/" + this.props.userID + "/experiences/" + data._id + "/picture", {
+            await fetch("https://linkedin-team.herokuapp.com/profiles/" + this.state.userID + "/experiences/" + id + "/picture", {
                 method: 'POST',
-                body: this.state.image,
-            })
+                body: (this.state.image),
+
+            }, 3000)
         })
+        console.log(this.state.image)
 
-
-        alert("You just added a new Expereince!")
+        alert("Congratulations! You just added a new Experience!")
         this.setState({
             showModal: false,
             addExperience: false,
@@ -207,7 +212,7 @@ class Experiences extends Component {
                                         <h5>{user.role}</h5>
                                         <p>{user.company}</p>
                                         <p>{user.description}</p>
-                                        <p>{user.startDate}</p>
+                                        <p>{user.startDate.slice(0, 10)}</p>
                                     </div>
                                 </div>
 

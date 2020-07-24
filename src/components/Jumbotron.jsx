@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Col, Image, Row, Modal, Form } from 'react-bootstrap'
+import { Button, Col, Image, Row, Modal, Form, Dropdown } from 'react-bootstrap'
 import { RiPencilLine } from 'react-icons/ri'
 import { FaRegBuilding, FaUniversity } from 'react-icons/fa'
 import { TiCameraOutline } from 'react-icons/ti'
@@ -117,9 +117,18 @@ class JumBotron extends Component {
                             <div className="align-self-end mr-4">
                                 {this.props.profileInfo.username === this.props.username ?
                                     <>
-                                        <div className="d-flex">
-                                            <Button>Add profile section</Button>
-                                            <Button id="secondButton">More ...</Button>
+                                        <div className="d-flex ">
+                                            <Button className=" mr-2">Add profile section</Button>
+                                            <Dropdown>
+                                                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                                    MORE </Dropdown.Toggle>
+
+                                                <Dropdown.Menu>
+                                                    <Dropdown.Item href="https://linkedin-team.herokuapp.com/profiles/user24/cv">GET THE PDF</Dropdown.Item>
+                                                    <Dropdown.Item href="https://linkedin-team.herokuapp.com/profiles/user24/experiences/csv">GET EXPERIENCES</Dropdown.Item>
+
+                                                </Dropdown.Menu>
+                                            </Dropdown>
                                             <div onClick={() => this.setState({ editProfile: !this.state.editProfile })}>
                                                 <RiPencilLine />
                                             </div>
